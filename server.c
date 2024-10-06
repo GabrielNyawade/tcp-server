@@ -26,8 +26,18 @@ void func(int connfd)
         memset(buff, 0, MAX);
         n = 0;
         // copy message in buffer and send to client
-        while ((buff[n++] = getc()) != '\n')
+        while ((buff[n++] = getchar()) != '\n')
         ;
+
+        // send to client
+        write(connfd, buff, sizeof(buff));
+
+        // exit stops the session
+        if (strncmp("exit", buff, 4) == 0)
+        {
+            printf("Server session ended...\n");
+            break;
+        }
     }
 }
 
@@ -48,6 +58,6 @@ int main(int argc, const char* argv[])
         exit(EXIT_FAILURE);
     }
 
-    // binding socket forcefully onto port 8080
-    if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT))
+    // to be continued...
+
 }
