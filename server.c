@@ -61,3 +61,7 @@ int main(int argc, const char* argv[])
     // to be continued...
 
 }
+
+
+/*jatelo is very much astounded at the complexity of this program. he will definitely work himself to the 
+bone to comprehend its working technique. his curiosity has now escalated */
